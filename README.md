@@ -52,5 +52,5 @@ update composer.json file.
 ```
 run following command
 ``` shell
-composer update yaumil/log-akses
+composer update subfission/cas
 ```
