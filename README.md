@@ -32,3 +32,25 @@ Check out the [wiki](https://github.com/subfission/cas/wiki) for further details
 * More configuration options in the config file available
 * Masquerading as a user now supported
 * Tested and working with PHP 7.x
+
+### Installation
+
+update composer.json file.
+
+```json
+{
+  "require" : {
+    "subfission/cas" : "dev-fix-cas-manager"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "https://github.com/khamidn/cas.git"
+    }
+  ]
+}
+```
+run following command
+``` shell
+composer update yaumil/log-akses
+```
