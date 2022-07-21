@@ -39,13 +39,21 @@ class CasManager
 			session_name($this->config['cas_session_name']);
 
 			// Harden session cookie to prevent some attacks on the cookie (e.g. XSS)
-			session_set_cookie_params(
-				$this->config['cas_session_lifetime'],
-				$this->config['cas_session_path'],
-				env('APP_DOMAIN'),
-				env('HTTPS_ONLY_COOKIES'),
-				$this->config['cas_session_httponly']
-			);
+// 			session_set_cookie_params(
+// 				$this->config['cas_session_lifetime'],
+// 				$this->config['cas_session_path'],
+// 				env('APP_DOMAIN'),
+// 				env('HTTPS_ONLY_COOKIES'),
+// 				$this->config['cas_session_httponly']
+// 			);
+			session_set_cookie_params([
+				'lifetime' => $this->config['cas_session_lifetime'],
+				'path' => $this->config['cas_session_path'],
+				'domain' => env( 'APP_DOMAIN' ),
+				'secure' => true,
+				'httponly' => env( 'HTTPS_ONLY_COOKIES' ),
+				'samesite' => 'None'
+			 ]);
 		}
 
 		$this->configureCas($this->config['cas_proxy'] ? 'proxy' : 'client');
