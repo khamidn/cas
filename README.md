@@ -45,7 +45,7 @@ update composer.json file.
   "repositories": [
     {
       "type": "vcs",
-      "https://github.com/khamidn/cas.git"
+      "url": "https://github.com/khamidn/cas.git"
     }
   ]
 }
